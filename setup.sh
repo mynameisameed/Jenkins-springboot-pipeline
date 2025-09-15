@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #---------------------------------------------#
-# Author: Adam WezvaTechnologies
-# Call/Whatsapp: +91-9739110917
+# Author: Sameed Uddin
+# Call/Whatsapp: +91-7995851271
 #---------------------------------------------#
 
 # Ensure script is run with root privileges
