@@ -13,21 +13,21 @@ pipeline {
       steps {
         git branch: 'main', credentialsId: 'GitlabCred', url: 'https://github.com/mynameisameed/Jenkins-springboot-pipeline.git'
         echo "Building Jar Component ..."
-        sh "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64; mvn clean package "
+        sh "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64; mvn clean package "
       }
     }
 
    stage('Stage II: Code Coverage ') {
       steps {
 	    echo "Running Code Coverage ..."
-        sh "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64; mvn jacoco:report"
+        sh "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64; mvn jacoco:report"
       }
     }
 
    stage('Stage III: SCA') {
       steps { 
         echo "Running Software Composition Analysis using OWASP Dependency-Check ..."
-        sh "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64; mvn org.owasp:dependency-check-maven:check -Dnvd.api.key=$NVD_API_KEY"
+        sh "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64; mvn org.owasp:dependency-check-maven:check -Dnvd.api.key=$NVD_API_KEY"
       }
     }
 
@@ -35,7 +35,7 @@ pipeline {
       steps { 
         echo "Running Static application security testing using SonarQube Scanner ..."
         withSonarQubeEnv('mysonarqube') {
-            sh 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64; mvn sonar:sonar -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml -Dsonar.dependencyCheck.jsonReportPath=target/dependency-check-report.json -Dsonar.dependencyCheck.htmlReportPath=target/dependency-check-report.html -Dsonar.projectName=samtechlabs'
+            sh 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64; mvn sonar:sonar -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml -Dsonar.dependencyCheck.jsonReportPath=target/dependency-check-report.json -Dsonar.dependencyCheck.htmlReportPath=target/dependency-check-report.html -Dsonar.projectName=samtechlabs'
        }
       }
     }
