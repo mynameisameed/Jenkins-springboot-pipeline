@@ -17,7 +17,7 @@
 - [ ] SonarQube Scanner
 - [ ] Quality Gates
 
-## Step 2: Install Docker, Java8, Java11 & Trivy on Build Server
+## Step 2: Install Docker, Java17 & Trivy on Build Server
 ```
 $ sudo ./setup.sh
 ```
@@ -41,3 +41,4 @@ $ sudo docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 
 
 
+![Springboot-pipeline](image.png)
