@@ -3,16 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.myapp</groupId>
-    <artifactId>wezvatech-demo</artifactId>
-    <version>9739110917</version>
+    <groupId>com.samtech</groupId>
+    <artifactId>samtech-demo</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>Spring boot application example</name>
-    <description>Demo wezvatech Ninjas project</description>
+    <description>Demo samtech project</description>
 
     <organization>
-        <name>ADAM M</name>
+        <name>Sameed Uddin</name>
     </organization>
 
 
