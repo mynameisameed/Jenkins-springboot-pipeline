@@ -5,13 +5,13 @@ pipeline {
         registryCredential = 'dockerhub' 
    }
    parameters {
-    password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your Gitlab password')
+    password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your GitHub password')
    }
 
   stages {
    stage('Stage I: Build') {
       steps {
-        git branch: 'main', credentialsId: 'GitlabCred', url: 'https://github.com/mynameisameed/Jenkins-springboot-pipeline.git'
+        git branch: 'main', credentialsId: 'GitHubCred', url: 'https://github.com/mynameisameed/Jenkins-springboot-pipeline.git'
         echo "Building Jar Component ..."
         sh "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64; mvn clean package "
       }
@@ -87,7 +87,7 @@ pipeline {
        script {
         TAG = "$BUILD_NUMBER"
          echo "Trigger CD Pipeline"
-          build wait: false, job: 'springboot-cd-pipeline', parameters: [password(name: 'PASSWD', description: 'Please Enter your Gitlab password', value: params.PASSWD),string(name: 'IMAGETAG', value: TAG)]
+          build wait: false, job: 'springboot-cd-pipeline', parameters: [password(name: 'PASSWD', description: 'Please Enter your GitHub password', value: params.PASSWD),string(name: 'IMAGETAG', value: TAG)]
        }
       }
     }
